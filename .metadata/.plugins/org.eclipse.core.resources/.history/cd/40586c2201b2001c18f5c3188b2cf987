@@ -1,0 +1,5 @@
+package com.brainmentors.chatapp.dao;
+//scontains te DB CRUD Operation
+public class UserDAO {
+
+}

@@ -1,0 +1,26 @@
+package com.brainmentors.chatapp.network;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import com.brainmentors.chatapp.utilis.ConfigReader;
+
+public class server 
+{
+	ServerSocket serverSocket;
+	public server() throws IOException
+	{
+		int PORT=Integer.parseInt(ConfigReader.getValue("PORTNO"));
+		serverSocket=new ServerSocket(PORT);
+		System.out.println("Serve Started and Waiting for Client.......");
+		Socket socket=serverSocket.accept();//THIS PROCESS IS CALLED HANDSHAKING OF CLIENT AND SERVER
+		System.out.println("Client joins the Server....");
+	}
+	public static void main(String[]args)
+	{
+		server serve =new server();
+	}
+   	
+
+}

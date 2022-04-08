@@ -1,0 +1,73 @@
+package com.brainmentors.chatapp.views;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class UserScreen extends JFrame {
+	private JTextField textField;
+	private JTextField textField_1;
+
+	
+	public static void main(String[] args) {
+		
+					UserScreen window = new UserScreen();
+					
+	}
+      
+	/**
+	 * Create the application.
+	 */
+	public UserScreen() {
+		setResizable(false);
+		setTitle("                                                                  LOGIN");
+		setBackground(Color.WHITE);
+		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Login");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 40));
+		lblNewLabel.setBounds(246, 38, 132, 47);
+		getContentPane().add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(192, 116, 242, 39);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("User ID");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(89, 121, 104, 26);
+		getContentPane().add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(192, 183, 242, 32);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Password");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(75, 183, 74, 32);
+		getContentPane().add(lblNewLabel_2);
+		
+		JButton btnNewButton = new JButton("Log In");
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnNewButton.setBounds(193, 260, 96, 32);
+		getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Register");
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		btnNewButton_1.setBounds(311, 260, 96, 32);
+		getContentPane().add(btnNewButton_1);
+		setBounds(100, 100, 627, 453);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
+	}
+}

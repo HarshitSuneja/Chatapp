@@ -1,0 +1,22 @@
+package com.brainmentors.chatapp.views;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class UserView extends JFrame {
+	public UserView()
+	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(500,500);
+		setResizable(false);
+		setTitle("login");
+		setLocationRelativeTo(null);
+		JLabel welcome=new JLabel("login");
+		welcome.setFont(new Font("Arial"))
+		setVisible(true);
+	}
+    public static void main(String args[])
+    {
+    	UserView userview=new UserView();
+    }
+}

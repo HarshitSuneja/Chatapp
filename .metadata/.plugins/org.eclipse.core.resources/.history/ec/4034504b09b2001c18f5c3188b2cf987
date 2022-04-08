@@ -1,0 +1,10 @@
+package com.brainmentors.chatapp.dao;
+
+import java.sql.Connection;
+
+//contains DB CRUD Operation
+public class UserDAO {
+        public Connection createConnection() {
+        	
+        }
+}

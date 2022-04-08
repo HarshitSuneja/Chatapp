@@ -1,0 +1,14 @@
+package com.brainmentors.chatapp.dao;
+
+import com.brainmentors.chatapp.dto.UserDTO;
+
+//User CRUD operation
+public class UserDAO1 {
+	
+	public int add(UserDTO userDTO)
+	{
+		 System.out.println("rec"+userDTO.getUserid());
+		return 0;
+	}
+
+}

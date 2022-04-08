@@ -1,0 +1,8 @@
+package com.brainmentors.chatapp.views;
+
+import javax.swing.JFrame;
+
+public class changePassword extends JFrame {
+
+	
+}

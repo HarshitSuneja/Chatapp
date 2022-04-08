@@ -1,0 +1,112 @@
+package com.brainmentors.chatapp.views;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import com.brainmentors.chatapp.dao.UserDAO1;
+import com.brainmentors.chatapp.dto.UserDTO;
+
+public class UserScreen extends JFrame {
+	private JTextField userIdtxt;
+	private JTextField PasswordField;
+
+	
+	public static void main(String[] args) {
+		
+		UserScreen window = new UserScreen();
+					
+	}
+	private void register()
+	{
+		String userid=userIdtxt.getText(); 
+		char []password=((JPasswordField) PasswordField).getPassword();
+	    UserDAO1 userDAO1=new UserDAO1();
+	    UserDTO userDTO=new UserDTO(userid,password);
+	    try {
+	    int result=userDAO1.add(userDTO);
+	    		if(result>0)
+	    		{
+	    			System.out.println("Record has been added successfully");
+	    		}
+	    		else
+	    		{
+	    			System.out.println("Record has not been added successfully");
+	    		}
+	    }
+	    catch(SQLException |ClassNotFoundException ex) {
+	    	System.out.println("DB ISSUE......");
+	    	 ex.printStackTrace();//this tells where is the exception
+	    }
+	    catch(Exception ex)
+	    {
+	    	System.out.println("Some Generic exception Raised...");
+	    	ex.printStackTrace();
+	    }
+	}   
+	/**
+	 * Create the application.
+	 */
+	public UserScreen() {
+		setResizable(false);
+		setTitle("                                                                  LOGIN");
+		setBackground(Color.WHITE);
+		getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Login");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 40));
+		lblNewLabel.setBounds(246, 38, 132, 47);
+		getContentPane().add(lblNewLabel);
+		
+		userIdtxt = new JTextField();
+		userIdtxt.setBounds(192, 116, 242, 39);
+		getContentPane().add(userIdtxt);
+		userIdtxt.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("User ID");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 14)); 
+		lblNewLabel_1.setBounds(89, 121, 104, 26);
+		getContentPane().add(lblNewLabel_1);
+		
+		PasswordField = new JPasswordField();
+		PasswordField.setBounds(192, 183, 242, 32);
+		getContentPane().add(PasswordField);
+		PasswordField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Password");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(75, 183, 74, 32);
+		getContentPane().add(lblNewLabel_2);
+		
+		JButton loginbt = new JButton("Log In");
+		loginbt.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		loginbt.setBounds(193, 260, 96, 32);
+		getContentPane().add(loginbt);
+		
+		JButton registerbt = new JButton("Register");
+		registerbt.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				register();
+			}
+		});
+		registerbt.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		registerbt.setBounds(311, 260, 96, 32);
+		getContentPane().add(registerbt);
+		setSize(627, 453);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
+	}
+}
