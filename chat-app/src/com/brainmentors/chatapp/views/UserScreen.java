@@ -17,10 +17,11 @@ import javax.swing.SwingConstants;
 
 import com.brainmentors.chatapp.dao.UserDAO1;
 import com.brainmentors.chatapp.dto.UserDTO;
+import com.brainmentors.chatapp.utilis.UserInfo;
 
 public class UserScreen extends JFrame {
 	private JTextField userIdtxt;
-	private JTextField PasswordField;
+	private JPasswordField PasswordField;
 
 	
 	public static void main(String[] args) {
@@ -45,10 +46,11 @@ public class UserScreen extends JFrame {
 	    if(userDAO1.isLogin(userDTO))
 	    {
 	    	message="Welcome"+" "+userid;
+	    	UserInfo.USER_NAME=userid;
 	    	JOptionPane.showMessageDialog(this, message);
 	    	setVisible(false);
 	    	dispose();
-	    	DashBoard dashBoard=new DashBoard( message);
+	    	DashBoard dashBoard=new DashBoard(message);
 	    	dashBoard.setVisible(true);
 	    }
 	    else
@@ -73,7 +75,7 @@ public class UserScreen extends JFrame {
 	private void register()
 	{
 		String userid=userIdtxt.getText(); 
-		char []password=((JPasswordField) PasswordField).getPassword();
+		char []password=PasswordField.getPassword();
 		String emailid=EmailID.getText();
 		String city=City.getText();
 		String Phoneno=PhoneNo.getText();
